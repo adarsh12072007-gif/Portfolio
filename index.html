@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Singh | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- 3D Animated Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-bracket">&lt;</span>Adarsh<span class="logo-dot">.</span>Singh<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting animate-text">Hello, I'm</p>
+                <h1 class="hero-name animate-text">Adarsh Singh</h1>
+                <div class="hero-title-wrapper">
+                    <span class="hero-title-static">I'm a </span>
+                    <span class="hero-title-dynamic" id="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description animate-text">
+                    A passionate developer crafting modern, responsive, and visually stunning web experiences. 
+                    I turn ideas into reality through clean code and creative design.
+                </p>
+                <div class="hero-buttons animate-text">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                <div class="hero-socials animate-text">
+                    <a href="https://github.com/adarsh12072007-gif" target="_blank" class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate-text">
+                <div class="image-wrapper">
+                    <div class="image-border"></div>
+                    <img src="profile.jpg" alt="Adarsh Singh" class="profile-img">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span> About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-image reveal-left">
+                    <div class="about-img-wrapper">
+                        <img src="profile.jpg" alt="Adarsh Singh">
+                        <div class="about-img-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text reveal-right">
+                    <h3>Who am I?</h3>
+                    <p>
+                        I'm <span class="highlight">Adarsh Singh</span>, a passionate and dedicated web developer 
+                        with a keen eye for design and a love for creating engaging digital experiences. 
+                        I believe in writing clean, efficient code that not only works flawlessly but also 
+                        provides an exceptional user experience.
+                    </p>
+                    <p>
+                        My journey in web development started with curiosity and has grown into a full-blown 
+                        passion. I enjoy exploring new technologies, solving complex problems, and continuously 
+                        improving my skills. When I'm not coding, you'll find me exploring the latest tech trends 
+                        or working on creative side projects.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-user"></i> Name:</span>
+                            <span class="info-value">Adarsh Singh</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-map-marker-alt"></i> Location:</span>
+                            <span class="info-value">India</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                            <span class="info-value">adarshsingh@email.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-briefcase"></i> Availability:</span>
+                            <span class="info-value available">Open to Opportunities</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Let's Talk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span> Education
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">Currently Pursuing</div>
+                        <h3>Secondary Education</h3>
+                        <p class="timeline-institution">
+                            <i class="fas fa-school"></i> High School
+                        </p>
+                        <p class="timeline-description">
+                            Actively learning and building a strong foundation in Computer Science, 
+                            Mathematics, and Web Development. Passionate about applying classroom 
+                            knowledge to real-world projects.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">Self-Learning</div>
+                        <h3>Web Development</h3>
+                        <p class="timeline-institution">
+                            <i class="fas fa-laptop-code"></i> Online Courses & Practice
+                        </p>
+                        <p class="timeline-description">
+                            Continuously learning modern web technologies including HTML5, CSS3, 
+                            JavaScript, responsive design, and front-end frameworks through 
+                            hands-on projects and online resources.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">Certifications</div>
+                        <h3>Technical Certifications</h3>
+                        <p class="timeline-institution">
+                            <i class="fas fa-award"></i> Various Platforms
+                        </p>
+                        <p class="timeline-description">
+                            Earned certifications in web development fundamentals, 
+                            responsive design, and JavaScript programming from 
+                            recognized online learning platforms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span> My Skills
+            </h2>
+            <div class="skills-content">
+                <div class="skills-category reveal-up">
+                    <h3 class="skills-category-title">
+                        <i class="fas fa-code"></i> Frontend Development
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h4>HTML5</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h4>CSS3</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <h4>JavaScript</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <h4>Bootstrap</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category reveal-up">
+                    <h3 class="skills-category-title">
+                        <i class="fas fa-tools"></i> Tools & Technologies
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <h4>Git & GitHub</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <h4>VS Code</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>Responsive Design</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4>Python</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="65"></div>
+                            </div>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span> My Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card reveal-up">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/adarsh12072007-gif" target="_blank" class="project-link" title="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A fully responsive and animated portfolio website showcasing my skills, 
+                           projects, and experience with a 3D animated background.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-up">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/adarsh12072007-gif" target="_blank" class="project-link" title="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Interactive Calculator</h3>
+                        <p>A modern, feature-rich calculator application with a sleek UI, 
+                           keyboard support, and smooth animations.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-up">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/adarsh12072007-gif" target="_blank" class="project-link" title="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Weather Dashboard</h3>
+                        <p>A dynamic weather application that displays real-time weather data 
+                           with beautiful animations and responsive design.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-up">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/adarsh12072007-gif" target="_blank" class="project-link" title="Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Task Manager App</h3>
+                        <p>A productivity app with task creation, categorization, 
+                           drag-and-drop functionality, and local storage persistence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span> Contact Me
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info reveal-left">
+                    <h3>Let's Work Together</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, 
+                       or opportunities to be part of your vision. Feel free to reach out!</p>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>adarshsingh@email.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>India</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>Available on request</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/adarsh12072007-gif" target="_blank" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fas fa-comment"></i>
+                                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>Adarsh<span class="logo-dot">.</span>Singh<span class="logo-bracket">/&gt;</span>
+            </div>
+            <p class="footer-text">Crafted with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by Adarsh Singh</p>
+            <p class="footer-copyright">&copy; 2024 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-circle"></div>
+            <span class="preloader-text">Loading...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
