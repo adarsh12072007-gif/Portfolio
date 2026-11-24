@@ -1,4 +1,4 @@
-/* ===== 3D Animated Particle Background ===== */
+/* ===== 3D Animated Particle Background - Sage Aesthetic ===== */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -19,17 +19,18 @@ class Particle {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.z = Math.random() * 1000;
-        this.baseSize = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.speedZ = Math.random() * 2 + 0.5;
+        this.baseSize = Math.random() * 2 + 0.6;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.speedZ = Math.random() * 1.8 + 0.4;
 
+        // Custom Palette from User: #CCD5AE, #E9EDC9, #D4A373, #FAEDCD
         const colors = [
-            { r: 108, g: 99, b: 255 },   // primary purple
-            { r: 0, g: 212, b: 170 },     // accent teal
-            { r: 255, g: 107, b: 107 },   // secondary red
-            { r: 139, g: 131, b: 255 },   // light purple
-            { r: 100, g: 180, b: 255 },   // blue
+            { r: 204, g: 213, b: 174 },   // #CCD5AE (Sage Green)
+            { r: 233, g: 237, b: 201 },   // #E9EDC9 (Cream Sage)
+            { r: 212, g: 163, b: 115 },   // #D4A373 (Warm Bronze)
+            { r: 250, g: 237, b: 205 },   // #FAEDCD (Pale Sand)
+            { r: 163, g: 175, b: 131 },   // Muted Olive
         ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
     }
@@ -43,8 +44,8 @@ class Particle {
         if (mouse.x !== null) {
             const dx = mouse.x - canvas.width / 2;
             const dy = mouse.y - canvas.height / 2;
-            this.x += dx * 0.00005 * (1000 - this.z) / 1000;
-            this.y += dy * 0.00005 * (1000 - this.z) / 1000;
+            this.x += dx * 0.00004 * (1000 - this.z) / 1000;
+            this.y += dy * 0.00004 * (1000 - this.z) / 1000;
         }
 
         if (this.z <= 0 || this.x < -50 || this.x > canvas.width + 50 || this.y < -50 || this.y > canvas.height + 50) {
@@ -55,8 +56,8 @@ class Particle {
 
     draw() {
         const scale = (1000 - this.z) / 1000;
-        const size = this.baseSize * scale * 3;
-        const opacity = scale * 0.8;
+        const size = this.baseSize * scale * 3.2;
+        const opacity = scale * 0.85;
 
         // 3D position projection
         const projX = (this.x - canvas.width / 2) * scale + canvas.width / 2;
@@ -67,11 +68,11 @@ class Particle {
         ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity})`;
         ctx.fill();
 
-        // Glow effect for larger particles
-        if (size > 1.5) {
+        // Subtle soft glow
+        if (size > 1.8) {
             ctx.beginPath();
-            ctx.arc(projX, projY, size * 3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.1})`;
+            ctx.arc(projX, projY, size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.12})`;
             ctx.fill();
         }
     }
@@ -79,7 +80,7 @@ class Particle {
 
 function initParticles() {
     particles = [];
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 8000), 200);
+    const count = Math.min(Math.floor((canvas.width * canvas.height) / 8500), 180);
     for (let i = 0; i < count; i++) {
         particles.push(new Particle());
     }
@@ -100,13 +101,13 @@ function drawConnections() {
             const dy = projYI - projYJ;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 120) {
-                const opacity = (1 - distance / 120) * 0.15 * scaleI * scaleJ;
+            if (distance < 115) {
+                const opacity = (1 - distance / 115) * 0.14 * scaleI * scaleJ;
                 ctx.beginPath();
                 ctx.moveTo(projXI, projYI);
                 ctx.lineTo(projXJ, projYJ);
-                ctx.strokeStyle = `rgba(108, 99, 255, ${opacity})`;
-                ctx.lineWidth = 0.5;
+                ctx.strokeStyle = `rgba(204, 213, 174, ${opacity})`;
+                ctx.lineWidth = 0.55;
                 ctx.stroke();
             }
         }
@@ -116,13 +117,13 @@ function drawConnections() {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Dark gradient background
+    // Deep aesthetic gradient
     const gradient = ctx.createRadialGradient(
         canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width / 1.5
+        canvas.width / 2, canvas.height / 2, canvas.width * 0.8
     );
-    gradient.addColorStop(0, 'rgba(18, 18, 42, 0.3)');
-    gradient.addColorStop(1, 'rgba(10, 10, 26, 0.3)');
+    gradient.addColorStop(0, 'rgba(21, 30, 23, 0.45)');
+    gradient.addColorStop(1, 'rgba(14, 20, 16, 0.55)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -160,9 +161,9 @@ window.addEventListener('resize', () => {
 const typedTextElement = document.getElementById('typed-text');
 const titles = [
     'Web Developer',
-    'Frontend Developer',
+    'Frontend Creator',
     'UI/UX Enthusiast',
-    'Creative Coder',
+    'Creative Designer',
     'Problem Solver'
 ];
 let titleIndex = 0;
@@ -180,15 +181,15 @@ function typeText() {
         charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 50 : 100;
+    let typeSpeed = isDeleting ? 45 : 95;
 
     if (!isDeleting && charIndex === currentTitle.length) {
-        typeSpeed = 2000;
+        typeSpeed = 2200;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         titleIndex = (titleIndex + 1) % titles.length;
-        typeSpeed = 500;
+        typeSpeed = 450;
     }
 
     setTimeout(typeText, typeSpeed);
@@ -223,7 +224,7 @@ function updateActiveNav() {
     let current = '';
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 110;
         if (window.scrollY >= sectionTop) {
             current = section.getAttribute('id');
         }
@@ -246,7 +247,6 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
 });
 
-// Close menu on link click
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -267,7 +267,7 @@ function revealOnScroll() {
         const elementTop = el.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (elementTop < windowHeight - 100) {
+        if (elementTop < windowHeight - 90) {
             el.classList.add('revealed');
         }
     });
@@ -284,7 +284,7 @@ function animateSkillBars() {
         const elementTop = bar.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (elementTop < windowHeight - 50) {
+        if (elementTop < windowHeight - 40) {
             const progress = bar.getAttribute('data-progress');
             bar.style.width = progress + '%';
         }
@@ -294,27 +294,19 @@ function animateSkillBars() {
 window.addEventListener('scroll', animateSkillBars);
 window.addEventListener('load', animateSkillBars);
 
-/* ===== Contact Form ===== */
+/* ===== Contact Form Submission ===== */
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Show success notification
-    showNotification(`Thanks ${name}! Your message has been sent successfully.`, 'success');
-
-    // Reset form
+    showNotification(`Thank you ${name}! Your message has been sent successfully.`, 'success');
     contactForm.reset();
 });
 
 /* ===== Notification System ===== */
 function showNotification(message, type = 'success') {
-    // Remove existing notifications
     const existing = document.querySelector('.notification');
     if (existing) existing.remove();
 
@@ -325,51 +317,48 @@ function showNotification(message, type = 'success') {
         <span>${message}</span>
     `;
 
-    // Styles
     Object.assign(notification.style, {
         position: 'fixed',
-        top: '100px',
+        top: '90px',
         right: '30px',
-        padding: '15px 25px',
-        background: type === 'success' ? 'rgba(0, 212, 170, 0.95)' : 'rgba(255, 107, 107, 0.95)',
-        color: 'white',
-        borderRadius: '12px',
+        padding: '16px 26px',
+        background: type === 'success' ? 'rgba(204, 213, 174, 0.95)' : 'rgba(212, 163, 115, 0.95)',
+        color: '#0E1410',
+        borderRadius: '14px',
         display: 'flex',
         alignItems: 'center',
-        gap: '10px',
-        fontSize: '0.9rem',
-        fontWeight: '500',
+        gap: '12px',
+        fontSize: '0.95rem',
+        fontWeight: '600',
         zIndex: '10000',
         backdropFilter: 'blur(10px)',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+        boxShadow: '0 12px 35px rgba(0, 0, 0, 0.4)',
         transform: 'translateX(120%)',
-        transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        fontFamily: "'Poppins', sans-serif"
+        transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+        fontFamily: "'Plus Jakarta Sans', sans-serif"
     });
 
     document.body.appendChild(notification);
 
-    // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 10);
 
-    // Animate out
     setTimeout(() => {
         notification.style.transform = 'translateX(120%)';
         setTimeout(() => notification.remove(), 400);
     }, 4000);
 }
 
-/* ===== Preloader ===== */
+/* ===== Preloader Dismiss ===== */
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     setTimeout(() => {
         preloader.classList.add('hidden');
-    }, 1500);
+    }, 1200);
 });
 
-/* ===== Smooth Section Transitions ===== */
+/* ===== Smooth Scroll Links ===== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -380,7 +369,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/* ===== Tilt Effect on Project Cards ===== */
+/* ===== Tilt 3D Effect for Project Cards ===== */
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -389,68 +378,13 @@ document.querySelectorAll('.project-card').forEach(card => {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 22;
+        const rotateY = (centerX - x) / 22;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
     });
 
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
 });
-
-/* ===== Skill Card Hover Glow ===== */
-document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(108, 99, 255, 0.15), var(--bg-card) 60%)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.background = 'var(--bg-card)';
-    });
-});
-
-/* ===== Counter Animation for Stats ===== */
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-
-    function updateCounter() {
-        start += increment;
-        if (start < target) {
-            element.textContent = Math.floor(start);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    }
-    updateCounter();
-}
-
-/* ===== Intersection Observer for Lazy Animations ===== */
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => {
-    observer.observe(el);
-});
-
-/* ===== Dynamic Year in Footer ===== */
-document.querySelector('.footer-copyright').innerHTML =
-    `&copy; ${new Date().getFullYear()} All Rights Reserved.`;
